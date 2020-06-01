@@ -11,6 +11,7 @@
         android:layout_marginStart="102dp"
         android:layout_marginLeft="102dp"
         android:layout_marginTop="76dp"
+        android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,17 +10,25 @@
         android:id="@+id/getGeo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="325dp"
+        android:layout_marginBottom="358dp"
         android:text="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/position" />
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="162dp"
-        tools:layout_editor_absoluteY="252dp" />
+        android:id="@+id/position"
+        android:layout_width="252dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="92dp"
+        android:layout_marginLeft="92dp"
+        android:layout_marginTop="117dp"
+        android:layout_marginBottom="100dp"
+        android:text="FA"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/getGeo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

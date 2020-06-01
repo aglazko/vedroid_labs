@@ -16,9 +16,19 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+class Contact {
+    public String name;
+    public String number;
+
+    @Override
+    @NonNull
+    public String toString() {
+        return "name=" + name + ", number=" + number ;
+    }
+}
 
 public class MainActivity extends AppCompatActivity {
-    ArrayList<String> StoreContacts ;
+    ArrayList<Contact> StoreContacts ;
     public  static final int RequestPermissionCode  = 1 ;
     private boolean accessGranted;
 
@@ -46,9 +56,10 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 EnableRuntimePermission();
                 StoreContacts.clear();
-                GetContactsIntoArrayList();
-                arrayAdapter.notifyDataSetChanged();
-
+                if (accessGranted) {
+                    GetContactsIntoArrayList();
+                    arrayAdapter.notifyDataSetChanged();
+                }
             }
         });
 
@@ -61,12 +72,15 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
         String field = ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME;
+        String field2 = ContactsContract.CommonDataKinds.Phone.NUMBER;
         Cursor cursor = getContentResolver().query(
                 ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
-                new String[] {field},null, null, null);
-
+                new String[] {field, field2},null, null, null);
         while (cursor.moveToNext()) {
-            StoreContacts.add(cursor.getString(cursor.getColumnIndex(field)));
+            Contact contact = new Contact();
+            contact.name = cursor.getString(cursor.getColumnIndex(field));
+            contact.number = cursor.getString(cursor.getColumnIndex(field2));
+            StoreContacts.add(contact);
         }
         cursor.close();
 

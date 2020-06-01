@@ -27,8 +27,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        position = findViewById(R.id.textView);
-        position.setVisibility(View.INVISIBLE);
+        position = findViewById(R.id.position);
+//        position.setVisibility(View.INVISIBLE);
         geoButton = findViewById(R.id.getGeo);
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
